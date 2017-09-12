@@ -1,22 +1,41 @@
-##### Lab 3 - Advanced R programming #####
-#Function 1
+
+#' Euclidean function.
+#' 
+#' @param a A number.
+#' @param b A number.
+#' @return The greatest common divisor of  \code{a} and \code{b}.
+#' @references \url{https://en.wikipedia.org/wiki/Euclidean_algorithm}
+#' @examples
+#' euclidean(123612, 13892347912)
+#' euclidean(100, 1000)
+#' export
+
 euclidean <- function(a,b){
-
-gcd <- min(a,b)
-
-if(gcd != 0){
-
-while (a%%gcd !=0 | b%%gcd !=0){
-  gcd <- gcd-1
+  
+  gcd <- min(a,b)
+  
+  if(gcd != 0){
+    
+    while (a%%gcd !=0 | b%%gcd !=0){
+      gcd <- gcd-1
+      
+    }
+  } else gcd <- max(a,b)
+  
+  return(gcd)
   
 }
-} else gcd <- max(a,b)
 
-return(gcd)
 
-}
+#' Dijkstra function.
+#' 
+#' @param data A data frame.
+#' @param init_node A number.
+#' @return Calculate the shortest path from the initial node \code{init_node} to every other node in data frame \code{data}.
+#' @references \url{https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm}
+#' export
 
-#Function 2
+
 dijkstra<-function(data,init_node){
   
   n <- length(unique(wiki_graph[,1]))
@@ -69,5 +88,7 @@ dijkstra<-function(data,init_node){
   
 }
 
-
-
+devtools::document()
+roxygen2::roxygenise()
+install.packages("roxygen2")
+library(roxygen2)
