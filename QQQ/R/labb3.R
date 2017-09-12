@@ -87,8 +87,3 @@ dijkstra<-function(data,init_node){
   return(dist)
   
 }
-
-devtools::document()
-roxygen2::roxygenise()
-install.packages("roxygen2")
-library(roxygen2)
